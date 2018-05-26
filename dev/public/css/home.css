@@ -5,6 +5,9 @@
   width:95%;
   padding-left: 5px;
 }
+.comment:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 .md-list-item-text{
   border-bottom:1px solid white;
 
