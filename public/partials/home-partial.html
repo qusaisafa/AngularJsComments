@@ -28,6 +28,13 @@
                 </form>
             </md-input-container>
 
+            <md-list-item>
+                    Search by Id
+                <md-switch ng-model="searchBy" class="md-primary" aria-label="Switch 1" ng-change="onChange()">
+                    Search by Email
+                </md-switch>
+            </md-list-item>
+
             <md-content flex>
                 <!-- show comment record list -->
                 <md-list ng-init="getAllComments()">
@@ -44,7 +51,7 @@
                         <!-- 'edit' and 'delete' buttons -->
                         <div class="md-secondary-container">
                             <i class="fa fa-edit" ng-click="showUpdateCommentForm(comment)"></i>
-                            <i class="fa fa-remove" ng-click="confirmDeleteComment(comment)"></i>
+                            <i class="fa fa-remove" ng-click="confirmDeleteComment($event,comment.id)"></i>
                         </div>
                     </md-list-item>
                 </md-list>

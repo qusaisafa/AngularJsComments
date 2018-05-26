@@ -91,9 +91,14 @@
             $scope.cancel();
         }
 
+        function isEmptyOrSpaces(str){
+            return str === null || str.match(/^ *$/) !== null;
+        }
         //Search
-        var searchData = [];
+
+
         $scope.searchComments = function(){
+            var searchData = [];
             // TODO: search request to BE
             // commentsService.searchComment($scope.comment_search_keywords).then(function successCallback(response){
             //     $scope.products = response.data;
@@ -101,12 +106,23 @@
             //     $scope.showToast("Unable to read record.");
             // });
 
-            for (i = 0; i < $scope.comments.length; i++) {
-                if(($scope.comments[i].email).includes($scope.comment_search_keywords))
-                    searchData.push($scope.comments[i]);
+            if(isEmptyOrSpaces($scope.comment_search_keywords))
+                $scope.comments = allComments;
+            else{
+                for (i = 0; i < $scope.comments.length; i++) {
+                    if($scope.searchBy == true) {
+                        if (($scope.comments[i].email).includes($scope.comment_search_keywords))
+                            searchData.push($scope.comments[i]);
+                    }
+                    else{
+                        if ($scope.comments[i].id == $scope.comment_search_keywords )
+                            searchData.push($scope.comments[i]);
+                    }
+                }
+            $scope.comments = searchData
             }
         }
-        $scope.comments = searchData;
+
 
         // cofirm comment deletion
         $scope.confirmDeleteComment = function(event, id){
@@ -126,6 +142,10 @@
                 function() {
                     // if user clicked 'Yes', delete Comment record
                     // $scope.deleteComment(); TODO: send request to Delete record
+                    if (id > -1) {
+                        allComments.splice(id-1, 1);
+                        $scope.comments = allComments;
+                    }
                 },
                 // 'No' button
                 function() {
