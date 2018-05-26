@@ -1,19 +1,39 @@
-.comment{
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
+md-list-item{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  background-color: white;
+  background-color: white !important;
   width:95%;
   padding-left: 5px;
+  margin-bottom: 10px;
 }
-.comment:hover {
+md-list-item:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.md-list-item-text{
-  border-bottom:1px solid white;
-
+md-input-container.search{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background-color: white !important;
+  width:95%;
+  padding-left: 5px;
+  margin-bottom: 10px;
+  width: 99%;
 }
 .email{
   background-color: #0080ff;
   color:white;
   display: inline;
+}
+.add-icon{
+  width:50px !important;
+  cursor: pointer;
+}
+.fa{
+  margin-left: 3px;
+  cursor: pointer;
+}
+
+.commentsList{
+  margin-left: 50px;
 }

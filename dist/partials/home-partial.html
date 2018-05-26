@@ -11,49 +11,44 @@
                 <div flex md-truncate>
                     <h3 class="md-headline">Comments View</h3>
                 </div>
-
                 <!-- button for creating comment -->
-                <md-button class="md-raised" ng-click="showCreateCommentForm()">Create</md-button>
+                <img src="public/images/add.png" class="add-icon" ng-click="showCreateCommentForm()">
             </div>
         </md-toolbar>
+        <div class="commentsList">
+            <div flex md-truncate>
+                <h3 class="md-headline">Comments List</h3>
+            </div>
 
-        <!-- used for searching comments in api -->
-        <md-input-container class="md-block m-b-0px">
-            <form ng-submit="searchComments()">
-                <label>Search Comments...</label>
-                <input ng-model="comment_search_keywords">
-            </form>
-        </md-input-container>
+            <!-- used for searching comments in api -->
+            <md-input-container class="md-block m-b-0px search">
+                <form ng-submit="searchComments()">
+                    <label>Search Comments...</label>
+                    <input ng-model="comment_search_keywords">
+                </form>
+            </md-input-container>
 
-        <md-content flex>
-            <!-- show comment record list -->
-            <md-list ng-init="getAllComments()">
-                <div class="md-3-line" ng-repeat="comment in comments">
-
-                    <!-- comment information -->
-                    <div class="md-list-item-text">
-                        <h4> Comment : {{comment.id}}</h4>
-                        <div class="comment">
-                            <h3>{{comment.name}}</h3>
-                            <p>{{comment.body}}</p>
-                            <p class="email"> {{comment.email}}</p>
+            <md-content flex>
+                <!-- show comment record list -->
+                <md-list ng-init="getAllComments()">
+                    <md-list-item class="md-3-line" ng-repeat="comment in comments">
+                        <!-- comment information -->
+                        <div class="md-list-item-text">
+                            <p class="commentText"> Comment : {{comment.id}}</p>
+                            <div class="comment">
+                                <h3>{{comment.name}}</h3>
+                                <p>{{comment.body}}</p>
+                                <p class="email"> {{comment.email}}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- 'edit' and 'delete' buttons -->
-                    <!--<div class="md-secondary-container">-->
-                        <!--&lt;!&ndash; 'read one' button will be here &ndash;&gt;-->
-                        <!--<i class="fa fa-remove" ng-click="showRemoveCommentForm(comment)></i>-->
-                        <!--<i class="fa fa-edit " ng-click="showUpdateCommentForm(comment)"></div>-->
-                        <!--&lt;!&ndash; 'edit' button will be here &ndash;&gt;-->
-                        <!--&lt;!&ndash; 'delete' button will be here &ndash;&gt;-->
-
-                    <!--<md-divider ng-if="!$last"></md-divider>-->
-                    <!--</md-list-item>-->
-                </div>
-            </md-list>
-        </md-content>
+                        <!-- 'edit' and 'delete' buttons -->
+                        <div class="md-secondary-container">
+                            <i class="fa fa-edit" ng-click="showUpdateCommentForm(comment)"></i>
+                            <i class="fa fa-remove" ng-click="confirmDeleteComment(comment)"></i>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
     </div>
-
-    <!--<div flex="10"></div>-->
 </div> <!-- end row -->
