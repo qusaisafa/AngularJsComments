@@ -89,8 +89,18 @@
         }
 
         $scope.updateComment = function(){
-            // TODO call service update method to send update request to server
+            // TODO: call service update method to send update request to server
             $scope.cancel();
+        }
+
+        //Search
+        $scope.searchComments = function(){
+            // TODO: search request to BE
+            // commentsService.searchComments($scope.comment_search_keywords).then(function successCallback(response){
+            //     $scope.products = response.data;
+            // }, function errorCallback(response){
+            //     $scope.showToast("Unable to read record.");
+            // });
         }
 
     }]);

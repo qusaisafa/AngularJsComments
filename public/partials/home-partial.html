@@ -17,16 +17,22 @@
             </div>
         </md-toolbar>
 
-        <!-- 'search' bar will be here -->
+        <!-- used for searching comments in api -->
+        <md-input-container class="md-block m-b-0px">
+            <form ng-submit="searchComments()">
+                <label>Search Comments...</label>
+                <input ng-model="comment_search_keywords">
+            </form>
+        </md-input-container>
 
         <md-content flex>
             <!-- show comment record list -->
             <md-list ng-init="getAllComments()">
-                <md-list-item class="md-3-line" ng-repeat="comment in comments">
+                <div class="md-3-line" ng-repeat="comment in comments">
 
                     <!-- comment information -->
                     <div class="md-list-item-text">
-                        <p> Comment : {{comment.id}}</p>
+                        <h4> Comment : {{comment.id}}</h4>
                         <div class="comment">
                             <h3>{{comment.name}}</h3>
                             <p>{{comment.body}}</p>
@@ -34,19 +40,20 @@
                         </div>
                     </div>
 
-                    <!-- 'read one', 'edit' and 'delete' buttons -->
-                    <div class="md-secondary-container">
-                        <!-- 'read one' button will be here -->
-                        <i class="fa fa-remove"></i>
-                        <i class="fa fa-edit" ng-click="showUpdateCommentForm(comment)"></i>
-                        <!-- 'edit' button will be here -->
-                        <!-- 'delete' button will be here -->
-                    </div>
-                    <md-divider ng-if="!$last"></md-divider>
-                </md-list-item>
+                    <!-- 'edit' and 'delete' buttons -->
+                    <!--<div class="md-secondary-container">-->
+                        <!--&lt;!&ndash; 'read one' button will be here &ndash;&gt;-->
+                        <!--<i class="fa fa-remove" ng-click="showRemoveCommentForm(comment)></i>-->
+                        <!--<i class="fa fa-edit " ng-click="showUpdateCommentForm(comment)"></div>-->
+                        <!--&lt;!&ndash; 'edit' button will be here &ndash;&gt;-->
+                        <!--&lt;!&ndash; 'delete' button will be here &ndash;&gt;-->
+
+                    <!--<md-divider ng-if="!$last"></md-divider>-->
+                    <!--</md-list-item>-->
+                </div>
             </md-list>
         </md-content>
     </div>
 
-    <div flex="10"></div>
+    <!--<div flex="10"></div>-->
 </div> <!-- end row -->
