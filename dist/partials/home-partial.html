@@ -4,7 +4,7 @@
 
     <div flex="80" class='m-20px-0'>
 
-        <!-- page title & 'create product' button -->
+        <!-- page title & 'create comment' button -->
         <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
                 <!-- page title -->
@@ -13,14 +13,14 @@
                 </div>
 
                 <!-- button for creating comment -->
-                <md-button class="md-raised" ng-click="showCreateProductForm()">Create</md-button>
+                <md-button class="md-raised" ng-click="showCreateCommentForm()">Create</md-button>
             </div>
         </md-toolbar>
 
         <!-- 'search' bar will be here -->
 
         <md-content flex>
-            <!-- show product record list -->
+            <!-- show comment record list -->
             <md-list ng-init="getAllComments()">
                 <md-list-item class="md-3-line" ng-repeat="comment in comments">
 

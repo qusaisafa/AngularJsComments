@@ -11,7 +11,7 @@
             });
 
         // show 'create comment form' in dialog box
-        $scope.showCreateProductForm = function(event){
+        $scope.showCreateCommentForm = function(event){
             $mdDialog.show({
                 controller: DialogController,
                 templateUrl: '../../partials/create_comment.template.html',
